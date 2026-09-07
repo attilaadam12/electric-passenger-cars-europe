@@ -8,9 +8,9 @@ A célom az adat előkészítés, az egyszerű adatmodell, a DAX-képletek és a
 ## Adatforrás
 
 - Forrás: Eurostat.
-- Adattábla pontos linkje: **[https://ec.europa.eu/eurostat/databrowser/view/road_eqs_carpda__custom_22590817/default/table]**
-- A felhasznált forrásfájl elérése: **[fájl]**
-- Az előtisztított forrásfájl elérése: **[fájl]**
+- Adattábla pontos linkje: **[Eurostat – road_eqs_carpda](https://ec.europa.eu/eurostat/databrowser/view/road_eqs_carpda/default/table)**
+- A felhasznált forrásfájl elérése: **[data/road_eqs_carpda__custom_22584832_spreadsheet.xlsx](data/road_eqs_carpda__custom_22584832_spreadsheet.xlsx)**
+- Az előtisztított forrásfájl elérése: **[data/Electricity.xlsx](data/Electricity.xlsx)**
 
 ## Adat előkészítés (összefoglalva)
 
@@ -104,7 +104,9 @@ Ez a struktúra megfelelőbb a Power BI-ban történő szűréshez, kapcsolatok 
 A `Year` és `EV Cars` oszlopokhoz megfelelő adattípusokat állítottam be.
 
 ```
-Az Eurostatban `:` karakterrel jelölt, nem elérhető értékeket hiányzó (`null`) értékként kezeltem, és nem cseréltem őket nullára (`0`), mivel ezek nem nulla darab elektromos személygépkocsit, hanem nem elérhető adatot jelentenek.
+Az Eurostatban `:` karakterrel jelölt, nem elérhető értékeket hiányzó (`null`) értékként kezeltem, 
+és nem cseréltem őket nullára (`0`), mivel ezek nem nulla darab elektromos személygépkocsit,
+hanem nem elérhető adatot jelentenek.
 ```
 
 ### 4. Legal Form oszlopok létrehozása
@@ -140,9 +142,12 @@ Az egyesítés beállításai:
 - kapcsolódó mezők: `Country`, `Year` és `Legal Form`
 
 ```
-A Merge Queries művelettel a két tábla adatait közös mezők alapján kapcsoltam össze. Ebben az esetben a `Country`, `Year` és `Legal Form` mezők alapján az Eurostat flag információkat hozzákapcsoltam az `Appended_EV_Cars_Data` megfelelő soraihoz.
+Merge Queries művelettel a két tábla adatait közös mezők alapján kapcsoltam össze.
+Ebben az esetben a `Country`, `Year` és `Legal Form` mezők alapján az Eurostat flag információkat hozzákapcsoltam
+az `Appended_EV_Cars_Data` megfelelő soraihoz.
 
-A Left Outer kapcsolattípust választottam, így az Appended_EV_Cars_Data minden sora megmaradt akkor is, ha az adott adathoz nem tartozott flag információ.
+Left Outer opció, így az Appended_EV_Cars_Data minden sora megmaradt akkor is,
+ha az adott adathoz nem tartozott flag információ.
 ```
 
 Az egyesítés után a flag oszlopot kibontottam, az eredeti oszlopnév előtagként történő használata nélkül.
@@ -237,11 +242,13 @@ SELECTEDVALUE(dim_Year[Year])
 
 ##  Bemutató
 
+### Dashboard
+
+![Electric Passenger Cars dashboard](images/Electric%20Passenger%20Cars.png)
+
 ### Videó
 
-```markdown
-[Rövid videós bemutató](pelda.mp4)
-```
+[Rövid videós bemutató](videos/Electric%20Passenger%20Cars.mp4)
 
 ## Megjegyzések
 
@@ -259,6 +266,7 @@ SELECTEDVALUE(dim_Year[Year])
 | `README.md` | A projekt leírása és a DAX-képletek |
 | `EV_Cars_EU.pbix` | Power BI-projektfájl |
 | `data/` | Felhasznált forrásfájlok, vagy az elérésüket tartalmazó leírás |
-| `media/` | Képernyőkép, GIF és videó |
+| `images/` | Képernyőkép, GIF |
+| `videos/` | Videó |
 
 A `.pbix` fájl Power BI Desktopban nyitható meg. Az adatok frissítéséhez szükség lehet a forrásfájl útvonalának módosítására.
