@@ -248,7 +248,7 @@ SELECTEDVALUE(dim_Year[Year])
 
 ### Videó
 
-[Rövid videós bemutató](videos/Electric%20Passenger%20Cars.mp4)
+[Rövid videós bemutató](https://github.com/attilaadam12/electric-passenger-cars-europe/raw/refs/heads/main/videos/Electric%20Passenger%20Cars.mp4)
 
 ## Megjegyzések
 
