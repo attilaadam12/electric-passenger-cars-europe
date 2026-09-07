@@ -144,8 +144,8 @@ Az egyesítés beállításai:
 
 ```
 Merge Queries művelettel a két tábla adatait közös mezők alapján kapcsoltam össze.
-Ebben az esetben a `Country`, `Year` és `Legal Form` mezők alapján az Eurostat flag információkat hozzákapcsoltam
-az `Appended_EV_Cars_Data` megfelelő soraihoz.
+Ebben az esetben a `Country`, `Year` és `Legal Form` mezők alapján az Eurostat flag
+információkat hozzákapcsoltam az `Appended_EV_Cars_Data` megfelelő soraihoz.
 
 Left Outer opció, így az Appended_EV_Cars_Data minden sora megmaradt akkor is,
 ha az adott adathoz nem tartozott flag információ.
