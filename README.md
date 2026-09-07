@@ -2,8 +2,9 @@
 
 ## A projektről
 
-Az Eurostat adatai alapján mutatom be az elektromos személyautók számát és éves változását az adatállományban szereplő európai országokban.
+Az Eurostat adatai alapján mutatom be az elektromos személyautók számát és éves változását. Az adatállományban EU 27 és azon kívüli, ország adata is szerepel.
 A célom az adat előkészítés, az egyszerű adatmodell, a DAX-képletek és az interaktív dashboard készítésének gyakorlása volt.
+A projekt eredménye a [Bemutató](#bemutató) részben tekinthető meg.
 
 ## Adatforrás
 
@@ -21,7 +22,7 @@ Főbb lépések:
 - Excelben eltávolítottam a szükségtelen sorokat és formázásokat, valamint átneveztem a munkalapokat.
 - Power Query-ben, az évenként külön oszlopokban szereplő adatokat **Unpivot** művelettel `Country | Year | EV Cars` struktúrába alakítottam.
 - Beállítottam a `Year` és `EV Cars` mezők megfelelő adattípusait.
-- A nem elérhető Eurostat értékeket (`:`) `null` értékként kezeltem, mivel a hiányzó adat nem jelent nulla darab elektromos személygépkocsit.
+- A nem elérhető Eurostat értékeket (`:`) `null` értékként kezeltem, mivel a hiányzó adat nem jelent 0 darab elektromos személygépkocsit.
 - Létrehoztam a `Legal Form` oszlopokat (`Total`, `Physical Person`, `Legal Person`).
 - A három különálló adattáblát **Append** művelettel egy közös `Appended_EV_Cars_Data` táblába fűztem. Ez lett a fő adattábla.
 - A rendelkezésre álló Eurostat Flag információkat **Merge** művelettel, `Country`, `Year` és `Legal Form` alapján kapcsoltam a fő adattáblához.
@@ -34,7 +35,7 @@ Főbb lépések:
 
 ### 1. A forrásfájl felépítése
 
-Az eredeti, Eurostatból letöltött `.xlsx` fájl a következő munkalapokat tartalmazza:
+Az eredeti letöltött `.xlsx` fájl a következő munkalapokat tartalmazza:
 
 - Summary
 - Structure
@@ -45,7 +46,7 @@ Az eredeti, Eurostatból letöltött `.xlsx` fájl a következő munkalapokat ta
 - Sheet 3
 - Flags 3
 
-A **Summary** és **Structure** munkalapok az adatállomány megértését segítő leíró információkat tartalmaznak. Ezeket a forrásadatok szerkezetének és tartalmának megértéséhez használtam, de közvetlenül nem kerültek be az elemzésbe.
+A **Summary** és **Structure** munkalapok az adatállomány megértését segítő információkat tartalmaznak. Ezek közvetlenül nem kerültek be az elemzésbe.
 
 A **Sheet** munkalapok tartalmazzák az elemzéshez felhasznált személygépkocsi adatokat. Az adatok jogi forma szerint elkülönítve, évenként szerepelnek.
 
@@ -60,11 +61,11 @@ A használt Eurostat jelölések:
 
 ### 2. Előzetes adat-előkészítés Excelben
 
-A Power Query-be történő betöltés előtt az eredeti Excel-fájlon előkészítést végeztem.
+A Power Query-be történő betöltés előtt az eredeti Excel-fájlon előtisztítást végeztem.
 
 Az előkészítés során:
 
-- megszüntettem a rögzítéseket,
+- megszüntettem az ablaktábla rögzítéseket,
 - töröltem a szükségtelen sorokat,
 - eltávolítottam a szükségtelen formázásokat,
 - átneveztem a munkalapokat, hogy azok tartalma könnyebben azonosítható legyen.
@@ -128,7 +129,7 @@ Az így létrehozott új tábla neve:
 
 ### 5. Eurostat flag adatok hozzáadása
 
-Az `Electricity Physical Person2` és `Electricity Legal Person2` flag táblák nem tartalmaztak felhasználható flag adatokat, ezért ezekkel a további adat előkészítés során nem dolgoztam.
+Az `Electricity Physical Person2` és `Electricity Legal Person2` flag táblák nem tartalmaztak felhasználható flag adatokat, ezért ezekkel a továbbiakban nem dolgoztam.
 
 Az `Electricity Total2` tábla azonban tartalmazta az elérhető Eurostat flag információkat.
 
@@ -152,12 +153,12 @@ ha az adott adathoz nem tartozott flag információ.
 
 Az egyesítés után a flag oszlopot kibontottam, az eredeti oszlopnév előtagként történő használata nélkül.
 
-Ezzel az elérhető Eurostat státusz és adatminőségi információk a hozzájuk tartozó EV-adatok mellett is megmaradtak.
+Ezzel az elérhető Eurostat státusz és adatminőségi információk a hozzájuk tartozó EV adatok mellett is megmaradtak.
 
 
 ### 6. Lekérdezések betöltése
 
-A végleges adatmodellhez szükséges táblák betöltését engedélyeztem, míg a kizárólag az adat előkészítéshez használt köztes és segédlekérdezések betöltését letiltottam.
+A végleges adatmodellhez szükséges tábla betöltését engedélyeztem, míg a kizárólag az adat előkészítéshez használt egyéb táblák betöltését letiltottam.
 
 A fő adattábla:
 
