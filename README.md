@@ -2,8 +2,8 @@
 
 ## A projektről
 
-Az Eurostat adatai alapján mutatom be az elektromos személyautók számát és éves változását. Az adatállományban EU 27 és azon kívüli, ország adata is szerepel.
-A célom az adat előkészítés, az egyszerű adatmodell, a DAX-képletek és az interaktív dashboard készítésének gyakorlása volt.
+Az Eurostat adatai alapján mutatom be az elektromos személyautók számát és éves változását. Az adatállományban EU 27 és az azon kívüli országok adatai is szerepelnek.
+A célom az adat előkészítés, az egyszerű adatmodell, a DAX képletek és az interaktív dashboard készítésének gyakorlása volt.
 A projekt eredménye a [Bemutató](#bemutató) részben tekinthető meg.
 
 ## Adatforrás
