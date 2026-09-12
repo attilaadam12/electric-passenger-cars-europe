@@ -2,7 +2,7 @@
 
 ## A projektről
 
-Az Eurostat adatai alapján mutatom be az elektromos személyautók számát és éves változását. Az adatállományban EU 27 és az azon kívüli országok adatai is szerepelnek.
+Az Eurostat adatai alapján mutatom be az elektromos személyautók számát és éves változását. Az adatállományban az EU 27 és az azon kívüli országok adatai is szerepelnek.
 A célom az adat előkészítés, az egyszerű adatmodell, a DAX képletek és az interaktív dashboard készítésének gyakorlása volt.
 A projekt eredménye a [Bemutató](#bemutató) részben tekinthető meg.
 
@@ -59,7 +59,7 @@ A használt Eurostat jelölések:
 - `p` = provisional
 
 
-### 2. Előzetes adat-előkészítés Excelben
+### 2. Előzetes adat előkészítés Excelben
 
 A Power Query-be történő betöltés előtt az eredeti Excel-fájlon előtisztítást végeztem.
 
